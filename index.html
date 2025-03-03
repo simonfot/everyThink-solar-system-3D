@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>everyThink - Solar System Navigation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-container">
+        <div class="loading-solar-system">
+            <div class="loading-sun"></div>
+            <svg class="loading-orbits" viewBox="0 0 200 200">
+                <circle class="loading-orbit" cx="100" cy="100" r="30" />
+                <circle class="loading-orbit" cx="100" cy="100" r="55" />
+                <circle class="loading-orbit" cx="100" cy="100" r="80" />
+                
+                <!-- Planets -->
+                <circle class="loading-planet planet-1" cx="130" cy="100" r="3" />
+                <circle class="loading-planet planet-2" cx="45" cy="100" r="4" />
+                <circle class="loading-planet planet-3" cx="100" cy="20" r="5" />
+            </svg>
+            <div class="loading-text">Building your Thoughtverse...</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="container">
+        <!-- Three.js Container -->
+        <div id="solarSystem"></div>
+        
+        <!-- Controls -->
+        <div id="controls">
+            <button id="resetView" class="control-button">Reset View</button>
+            <button id="topView" class="control-button">Bird's Eye View</button>
+            <button id="logoMode" class="control-button">Logo Mode</button>
+            <button id="cameraLockToggle" class="control-button">
+                <i class="fas fa-lock"></i> Lock Camera
+            </button>
+            <div class="control-slider">
+                <input type="range" id="speedSlider" min="0" max="200" value="100">
+                <label for="speedSlider">Orbit Speed</label>
+            </div>
+        </div>
+
+        <!-- Camera Control Arrows -->
+        <div class="camera-arrows">
+            <div class="arrow-btn arrow-up">↑</div>
+            <div class="arrow-btn arrow-left">←</div>
+            <div class="arrow-btn arrow-center">•</div>
+            <div class="arrow-btn arrow-right">→</div>
+            <div class="arrow-btn arrow-down">↓</div>
+        </div>
+        
+        <!-- Tooltip -->
+        <div id="planetTooltip" class="tooltip">
+            <h3 class="tooltip-title">Planet Name</h3>
+            <div class="tooltip-content">
+                <p>Description of the planet.</p>
+            </div>
+            <div class="tooltip-buttons">
+                <button class="tooltip-btn">Learn More</button>
+            </div>
+        </div>
+        
+        <!-- Coin Icons -->
+        <div id="coinIcons">
+            <div class="coin-icon" data-section="about">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="coin-icon" data-section="physical-digital">
+                <i class="fas fa-coins"></i>
+            </div>
+            <div class="coin-icon" data-section="earning-spending">
+                <i class="fas fa-exchange-alt"></i>
+            </div>
+        </div>
+        
+        <!-- Content Area -->
+        <div id="contentArea">
+            <div id="about" class="content-section">
+                <h2>About EveryThink</h2>
+                <p>EveryThink is a platform that allows you to create your own thoughtverse - a solar system of ideas, projects, and connections.</p>
+                <p>Each planet represents a different project or idea, orbiting around your central concept.</p>
+            </div>
+            
+            <div id="physical-digital" class="content-section">
+                <h2>Physical & Digital</h2>
+                <p>EveryThink exists both physically and digitally.</p>
+                <div class="qr-code">
+                    <div class="qr-placeholder"></div>
+                    <p>Scan to connect</p>
+                </div>
+            </div>
+            
+            <div id="earning-spending" class="content-section">
+                <h2>Earning & Spending</h2>
+                <p>Earn points by engaging with the platform and redeem them for real-world rewards.</p>
+                <ul class="rewards-list">
+                    <li>Free coffee at Unit3</li>
+                    <li>Exclusive merchandise</li>
+                    <li>Digital collectibles</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Debug Panel -->
+        <div id="debugPanel">
+            <div id="toggleDebug">Debug Info ▼</div>
+            <div id="debugContent"></div>
+        </div>
+    </div>
+
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
